@@ -56,16 +56,7 @@ vgps3.Viewer = function(mapContainer, chartContainer) {
   */
   this.plugins = {
     'track': new vgps3.track.Track(),
-    'chart': new vgps3.chart.Chart(chartContainer),
-    'topofr': new vgps3.topo.fr.Map(),
-    'topoes': new vgps3.topo.es.Map(),
-    'topoch': new vgps3.topo.ch.Map(),
-    'topoeu': new vgps3.topo.eu.Map(),
-    'route': new vgps3.route.Route(),
-    'earth': new vgps3.earth.Earth(),
-    'path': new vgps3.path.Path(),
-    'airspace': new vgps3.airspace.Airspace(),
-    'skyways': new vgps3.skyways.Skyways()
+    'chart': new vgps3.chart.Chart(chartContainer)
   };
 
   /**
@@ -106,8 +97,8 @@ vgps3.Viewer = function(mapContainer, chartContainer) {
 /**
  * Add Flight
  * 
- * @param {url} url The url of the flight
- * @param {string} flight The json containing flight data.
+ * @param {string} url The url of the flight
+ * @param {vgps3.track.GpsFixes} flight The json containing flight data.
  *
  */
 vgps3.Viewer.prototype.addFlight = function(url, flight) {
