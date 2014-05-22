@@ -204,7 +204,7 @@ vgps3.Map.prototype.getDomainKey = function(keys) {
 /**
  * @define {string} The API keys format='domain1="key1" domain2="key2" *="fallback key"'.
  */
-vgps3.Map.GOOGLE_API_KEYS = 'intocross.com=AIzaSyDxGZDpEjjruZWrg7HCKLyF-IBL-HxPzyA';
+//vgps3.Map.GOOGLE_API_KEYS = 'intocross.com="AIzaSyDxGZDpEjjruZWrg7HCKLyF-IBL-HxPzyA"';
 
 
 /**

@@ -103,6 +103,20 @@ vgps3.Viewer = function(mapContainer, chartContainer) {
       );
 };
 
+/**
+ * Add Flight
+ * 
+ * @param {url} url The url of the flight
+ * @param {string} flight The json containing flight data.
+ *
+ */
+vgps3.Viewer.prototype.addFlight = function(url, flight) {
+  if(!flight)
+    this.plugins['track'].load(url);
+  else
+    this.plugins['track'].addTrack_(url, flight);
+}
+
 
 /**
  * Wires all the events.

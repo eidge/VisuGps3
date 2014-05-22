@@ -127,7 +127,7 @@ vgps3.track.Track.prototype.load = function(url) {
     vgps3.loadMask.setMessage('Chargement de la trace', undefined, true);
     this.jsonRequest_ = true;
   }
-  goog.net.XhrIo.send(vgps3.track.PROXY_URL + url, goog.bind(this.trackLoadHandler_, this, url));
+  goog.net.XhrIo.send(url, goog.bind(this.trackLoadHandler_, this, url));
 };
 
 
@@ -200,26 +200,11 @@ vgps3.track.Track.prototype.trackLoadHandler_ = function(url, event) {
 
 
 /**
- * Load flight from JSON
- *
- * @param {url} url The url of the flight
- * @param {string} flight The json containing flight data.
- *
- * @private
- * @see load
- */
-vgps3.track.Track.prototype.addFlight = function(url, flight) {
-  this.addTrack_(url, flight)
-};
-
-
-/**
  * Adds a track on the map.
  *
  * @param {string} url The url of the track.
  * @param {vgps3.track.GpsFixes} gpsFixes The track object.
  *
- * @private
  */
 vgps3.track.Track.prototype.addTrack_ = function(url, gpsFixes) {
   var point,
@@ -625,4 +610,5 @@ goog.exportSymbol('vgps3.track.Track', vgps3.track.Track);
 goog.exportSymbol('vgps3.track.PROXY_URL', vgps3.track.PROXY_URL);
 goog.exportSymbol('vgps3.track.Track.init', vgps3.track.Track.prototype.init);
 goog.exportSymbol('vgps3.track.Track.load', vgps3.track.Track.prototype.load);
+goog.exportSymbol('vgps3.track.Track.addTrack_', vgps3.track.Track.prototype.addTrack_);
 
