@@ -200,6 +200,20 @@ vgps3.track.Track.prototype.trackLoadHandler_ = function(url, event) {
 
 
 /**
+ * Load flight from JSON
+ *
+ * @param {url} url The url of the flight
+ * @param {string} flight The json containing flight data.
+ *
+ * @private
+ * @see load
+ */
+vgps3.track.Track.prototype.addFlight = function(url, flight) {
+  this.addTrack_(url, flight)
+};
+
+
+/**
  * Adds a track on the map.
  *
  * @param {string} url The url of the track.
