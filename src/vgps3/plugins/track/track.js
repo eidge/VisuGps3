@@ -25,7 +25,6 @@ goog.require('goog.style');
 goog.require('vgps3.Control');
 goog.require('vgps3.Map');
 goog.require('vgps3.PluginBase');
-goog.require('vgps3.loadMask');
 goog.require('vgps3.track.ClickEvent');
 goog.require('vgps3.track.LoadEvent');
 goog.require('vgps3.track.TrackSelectEvent');
@@ -124,7 +123,6 @@ vgps3.track.Track.prototype.requireGoogleMapLibs = function() {
  */
 vgps3.track.Track.prototype.load = function(url) {
   if (!this.jsonRequest_) {
-    vgps3.loadMask.setMessage('Chargement de la trace', undefined, true);
     this.jsonRequest_ = true;
   }
   goog.net.XhrIo.send(url, goog.bind(this.trackLoadHandler_, this, url));
@@ -194,8 +192,6 @@ vgps3.track.Track.prototype.trackLoadHandler_ = function(url, event) {
   } else {
     goog.dispose(xhr);
   }
-
-  vgps3.loadMask.setMessage('Erreur de chargement de la trace', vgps3.loadMask.Style.ERROR);
 };
 
 
@@ -226,7 +222,6 @@ vgps3.track.Track.prototype.addTrack_ = function(url, gpsFixes) {
       if (layer.getStatus() == google.maps.KmlLayerStatus.OK) {
         that.kmlLayers_.push(layer);
         that.gMap_.fitBounds(that.getTracksBounds_());
-        vgps3.loadMask.close();
       }
     });
 
@@ -305,7 +300,6 @@ vgps3.track.Track.prototype.addTrack_ = function(url, gpsFixes) {
     this.trackControl_.setExtraClass('vgps3-earth-control');
 
     this.selectCurrentTrack_(0);
-    vgps3.loadMask.close();
   }
 
   this.tracks_[trackIndex].iconScaler = this.getIconScaler_(minElevation, maxElevation, gpsFixes['elev']);

@@ -99,6 +99,7 @@ vgps3.Viewer = function(mapContainer, chartContainer) {
  * 
  * @param {string} url The url of the flight
  * @param {vgps3.track.GpsFixes} flight The json containing flight data.
+ * @externs
  *
  */
 vgps3.Viewer.prototype.addFlight = function(url, flight) {
@@ -190,6 +191,8 @@ vgps3.Viewer.prototype.array2LatLng_ = function(opt_latlng) {
 };
 
 goog.exportSymbol('vgps3.Viewer', vgps3.Viewer);
+goog.exportProperty(
+    vgps3.Viewer.prototype, 'addFlight', vgps3.Viewer.prototype.addFlight);
 
 if (goog.DEBUG) {
   (function() {

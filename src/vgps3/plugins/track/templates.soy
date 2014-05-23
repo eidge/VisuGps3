@@ -17,11 +17,11 @@
 {template .infoControl}
   <h3><i class="fa fa-info-circle fa-2x"></i></h3>
   <ul>
-    <li title="{round($fixes['elev'][$index] / 0.3048)}ft">{$fixes['elev'][$index]}m [hV]</li>
-    <li>{max($fixes['elev'][$index] - $fixes['elevGnd'][$index], 0)}m [hS]</li>
-    <li>{$fixes['vario'][$index]}m/s [Vz]</li>
-    <li>{$fixes['speed'][$index]}km/h [Vx]</li>
-    <li>{$fixes['time']['hour'][$index]}:{$fixes['time']['min'][$index]}:{$fixes['time']['sec'][$index]} [Th]</li>
+    <li title="{round($fixes['elev'][$index] / 0.3048)}ft">Alt: {$fixes['elev'][$index]}m</li>
+    <li>AGL: {max($fixes['elev'][$index] - $fixes['elevGnd'][$index], 0)}m</li>
+    <li>Vario: {$fixes['vario'][$index]}m/s</li>
+    <li>Speed: {$fixes['speed'][$index]}km/h</li>
+    <li>{$fixes['time']['hour'][$index]}:{$fixes['time']['min'][$index]}:{$fixes['time']['sec'][$index]}</li>
 </ul>
 {/template}
 
